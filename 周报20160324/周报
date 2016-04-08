@@ -1,0 +1,9 @@
+# 周报
+#### 阅读周志华《机器学习》第8、10章。
+#### 通过论文《Top 10 algorithms in data mining》以及wikipedia学习了Apriori算法，并用python编程简单实现了一下。
+#### 阅读《Fast Time Series Classification Using Numerosity Reduction》。这篇论文逐渐加深，包括三部分：
+ 1. Naive Rank Numerosity Reduction，即根据样例的近邻节点x_j的label受此样例影响的程度，得到样例的rank，约减去低rank样例。这里面的rank值衡量了样例的重要程度。公式如下：![rank](E:\Users\markdown\rank.jpg)
+对于有相同秩的样例，可赋予优先权，优先权用此样例距离其近邻样例的远近来衡量，公式如下：![2](E:\Users\markdown\2.jpg)
+ 2. 将 Numerosity Reduction和warping window的选择相结合。warping window是如下DTW示意图中的r，
+![3](E:\Users\markdown\3.jpg)。  有[研究](http://alumni.cs.ucr.edu/~ratana/RatanamC.pdf)指出，适度“紧”的r值事实上能提升DTW分类的精度。本文通过逐渐减少样例大小，适时（增加r值能确保减少误差）增加r值这种动态的方法，来得到特定样例大小下的最适r值。Numerosity Reduction出来的重要样例被用在1NN_DTW中作为训练集，以计算改变r值前后的精度。
+ 3. 在2的基础上，通过将中间计算结果用矩阵存储下来的做法，降低计算复杂度。
