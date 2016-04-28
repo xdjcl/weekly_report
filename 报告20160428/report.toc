@@ -1,0 +1,10 @@
+\beamer@endinputifotherversion {3.36pt}
+\beamer@sectionintoc {1}{introductions to sequence and sequence classification}{2}{0}{1}
+\beamer@sectionintoc {2}{Dynamic Time Warping(DTW)}{7}{0}{2}
+\beamer@subsectionintoc {2}{1}{Why is DTW?}{8}{0}{2}
+\beamer@subsectionintoc {2}{2}{How to compute DTW}{12}{0}{2}
+\beamer@subsectionintoc {2}{3}{Speed up the DTW calculations}{19}{0}{2}
+\beamer@subsectionintoc {2}{4}{experimental result}{28}{0}{2}
+\beamer@sectionintoc {3}{Shapelets}{33}{0}{3}
+\beamer@subsectionintoc {3}{1}{What is shapelets?}{34}{0}{3}
+\beamer@subsectionintoc {3}{2}{Find and speed the shapelet}{38}{0}{3}
