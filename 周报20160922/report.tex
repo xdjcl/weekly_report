@@ -1,0 +1,35 @@
+\documentclass{ctexart}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{hyperref}
+\usepackage{subfigure}
+\usepackage{geometry}
+\geometry{left=2.5cm,right=3.5cm,top=2.5cm,bottom=2.5cm}
+\CTEXsetup[format+={\flushleft}]{section}
+
+\begin{document}
+\CJKfamily{li}
+\title{周报}
+\author{刘精昌}
+\maketitle
+
+\fangsong
+\section*{本周工作}
+\begin{enumerate}
+  \item 看完MLAPP第十二章，主要介绍FA，PCA，ICA。
+  \item 继续了解CNN相关知识。
+    \begin{itemize}
+      \item 看完UFLDL在线教程。
+      \item 阅读《A Taxonomy of Deep Convolutional Neural Nets for Computer Vision》，主要围绕CV，介绍了一些CNN结构以及改进。首先介绍了CNN的组件、训练算法、精确度提升等基本知识，其次介绍了用于图像识别、语义对象分割与解析、多模式网络，带有RNN结构，动作识别等各种情况下的CNN结构。该文可以作为一个进一步了解CNN的参考。
+    \end{itemize}
+  \item 阅读《Automatic Construction of Nonparametric Relational Regression Models for
+Multiple Time Series》ICML16。该文提出了学习高斯过程的Compositional Kernel的改进算法。Compositional Kernel提出于《Structure Discovery in Nonparametric Regression through Compositional Kernel Search》ICML13，Compositional Kernel主要是对Base Kernel 做加、乘、change-point、change-window操作得到。该改进算法主要基于Automatic Bayesian Covariance Discovery (ABCD)，ABCD由《Automatic Construction and Natural-Language Description of Nonparametric Regression Models》ICML14提出。该改进算法主要是遍历由Base Kernel扩张而来的Compositional Kernels集合，先利用极大似然估计学习参数，再利用BIC准则选择得到Compositional Kernel。改进方面需要进一步看相关论文。
+
+\end{enumerate}
+
+\section*{下周计划}
+\begin{itemize}
+  \item 主要学习高斯过程、Kernel相关知识：看MLAPP相关章节以及Compositional Kernel相关论文。
+\end{itemize}
+
+\end{document} 
