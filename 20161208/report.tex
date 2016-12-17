@@ -1,0 +1,42 @@
+\documentclass{ctexart}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{hyperref}
+\usepackage{subfigure}
+\usepackage{geometry}
+\geometry{left=2.5cm,right=3.5cm,top=2.5cm,bottom=2.5cm}
+\CTEXsetup[format+={\flushleft}]{section}
+
+\begin{document}
+\CJKfamily{li}
+\title{周报}
+\author{刘精昌}
+\maketitle
+\fangsong
+
+\section*{本周工作}
+\begin{enumerate}
+  \item 阅读《Stochastic Alternating Direction Method of Multipliers》ICML13，主要是看了数学证明。文章的一个具有启发式的idea是，ADMM迭代中，为了求解需要，使用泰勒近似，这种思想来自于2011年Nips上林宙辰的一篇，该文的引用好几百次。
+  \item 看了MTL相关文章，看的都比较粗略：
+  \begin{itemize}
+    \item 《Multi-Task Feature Learning》Nips06，关注于任务间特征稀疏问题，比较古老以及经典的文章。
+    \item 《Parallel Multi-Task Learning》ICDM15和《Distributed Multi-Task Learning》AISTATS16，看的不很明白，感觉做的有点儿杂乱。
+  \end{itemize}
+
+
+  \item 考虑了分布式多任务学习的问题。
+  对于$\sum\limits_i^T {loss\left( {{w_i},{X_i},{Y_i}} \right)}  + \lambda {\mathop{\rm Re}\nolimits} g\left( W \right)$形式的多任务学习优化问题。为了应用ADMM以进行分布式处理，需将$w_i$和$W$之间做到分离，把原优化问题转化为下面的优化问题：
+  \[\left\{ {\begin{array}{*{20}{c}}{min \sum\limits_i^T {loss\left( {{w_i},{X_i},{Y_i}} \right)}  + \lambda {\mathop{\rm Re}\nolimits} g\left( Q \right)} \\ {{QI_i^'} = {w_i}, \space i=1,2,\cdots,T} \end{array}} \right.\]
+其中，${I_i} = {\left( {0, \ldots ,0,1,0, \ldots ,0} \right)^T}$，第$i$个元素是1。
+该问题的增广拉格朗日函数为：
+\[{L_\rho }\left( {{w_1}, \cdots ,{w_T},{\mu _1}, \cdots ,{\mu _T},Q} \right) = \sum\limits_i^T {loss\left( {{w_i},{X_i},{Y_i}} \right)}  + \lambda {\mathop{\rm Re}\nolimits} gQ + \sum\limits_i^T {{\mu _i}\left( {QI_i^T - {w_i}} \right) + \sum\limits_i^T {\frac{\rho }{2}\left\| {QI_i^T - {w_i}} \right\|} } _2^2\]
+利用ADMM，对于$w_1,w_2,\cdots,w_T$，表示每个task，可以由各个workers来update：
+\[{w_i^{k+1}} = \mathop {\arg \min }\limits_{{w_i}} {L_\rho }\left( {{w_i},{Q^k},\mu_i^k } \right)\]
+由master来更新$Q$，表示master处理任务之间的联系：
+\[{Q^{k + 1}} = \mathop {\arg \min }\limits_Q {L_\rho }\left( {w_1^{k + 1},w_2^{k + 1}, \cdots ,w_T^{k + 1},Q,\mu _1^k,\mu _2^k, \cdots ,\mu _T^k} \right)\]
+最后是$\mu_i , i=1,2,\cdots,T$的update。
+
+上面是同步的，可以借助《Asynchronous Distributed ADMM for Consensus Optimization》这篇文章的思想来做异步。
+\end{enumerate}
+
+\end{document} 

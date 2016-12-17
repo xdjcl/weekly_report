@@ -1,0 +1,32 @@
+\documentclass{ctexart}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{hyperref}
+\usepackage{subfigure}
+\usepackage{geometry}
+\geometry{left=2.5cm,right=3.5cm,top=2.5cm,bottom=2.5cm}
+\CTEXsetup[format+={\flushleft}]{section}
+
+\begin{document}
+\CJKfamily{li}
+\title{周报}
+\author{刘精昌}
+\maketitle
+\fangsong
+
+\section*{本周工作}
+\begin{enumerate}
+  \item 阅读《Distributed Optimization and Statistical Learning via the Alternating Direction Method of Multipliers》(ADMM)第一到第七节。此外，了解了一点张量（tensor）相关知识，主要是关于张量的定义以及张量分解。
+  \item 为了对MTL问题建模以及求解相关步骤有进一步的认识，看了两篇MTL 相关论文。
+  \begin{itemize}
+    \item 《Multilinear Multitask Learning》ICML13，考虑的是每个task多indices情形，比如task是对城市做某种建模，该文考虑每个城市还有多项指标。为了处理该问题，该文提出两种方法，第一种方法比较传统，第二种方法基于对权重矩阵$W$ 做Tucker 分解 $W_{i_1,\cdots,i_N} = \sum\limits_{{j_1} = 1}^{{k_1}} { \cdots \sum\limits_{{j_N} = 1}^{{k_N}} {{G_{{j_1}, \cdots ,{j_N}}}\mathop A\nolimits_{{i_1},{j_1}}^{\left( 1 \right)}  \cdots } } \mathop A\nolimits_{{i_N},{j_N}}^{\left( N \right)} $。 $W$ 的 $mode-1$ 矩阵化即原始的$d \times t $ 任务矩阵。优化目标是：\[H\left( {G,{A^{\left( 1 \right)}}, \ldots ,{A^{\left( N \right)}}} \right) = F\left( {G{ \times _1}{A^{\left( 1 \right)}} \cdots { \times _N}{A^{\left( N \right)}}} \right) + \alpha \left( {\left\| G \right\|_{Fr}^2 + \sum\limits_{n = 1}^N {\left\| {{A^{\left( n \right)}}} \right\|_{Fr}^2} } \right)\]
+        使用交替法优化。
+    \item 《Multi-Task Feature Interaction Learning》KDD16，考虑的是多任务学习中特征之间具有交互效应的情形，用张量$Q$ 来表示各任务的特征间的交互效应，再对该$Q$做相应的正则化处理。本文分别对$Q$做了稀疏和低秩两种正则化处理，作为两种方法。
+  \end{itemize}
+\end{enumerate}
+
+\section*{下周计划}
+\begin{itemize}
+  \item 看凸优化、ADMM、优化论文，弄优化软件相关，考虑分布式处理MTL方法。
+\end{itemize}
+\end{document} 
