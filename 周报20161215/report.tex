@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage{ctex}
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{周报}
+\author{刘精昌}
+\maketitle
+
+\section*{本周工作}
+\begin{enumerate}
+  \item 看完《Distributed Optimization and Statistical Learning via the Alternating Direction Method of Multipliers》(ADMM)，看了一点《convex optimization》内容。
+  \item 看了Bach等在NIPS16报告的tutorial《Stochastic optimization: Beyond stochastic gradients and convexity》，主要是对最近优化工作的总结，有较大启发。目前的优化关注于4个问题：
+      \begin{enumerate}
+        \item 有限次项求和问题，主要工作是各种SGD的推广：SAG、SDCA、SARG、SVRG、ADAM等
+        \item 有限次求和加正则化项，主要是prox相关算法。
+        \item 非凸优化问题，和凸优化问题比较本质的区别是证明收敛性等时，凸优化中的一些性质不能直接使用，且证明目标和凸优化有一定区别。
+        \item 分布式优化问题，近年来有很多工作围绕SARG、SVRG等的分布式展开。
+      \end{enumerate}
+  \item 看了关于两篇SGD变形的papers：《A Stochastic Gradient Method with an Exponential Convergence Rate for Finite Training Sets》（SAG）nips12和《Accelerating Stochastic Gradient Descent using Predictive Variance Reduction》（SVRG）nips13，SAG和SVRG提升了SGD的收敛率。比较经典的两篇文章，把SGD的次线性收敛率提升到线性，SVRG相对于SAG的改进在于不需要再记录下之前的梯度，论文里说它更适合神经网络训练。
+  \item 准备本周组会报告。
+\end{enumerate}
+
+想了下《Distribution multi-task learning》AISTST16，认为该工作解决MTL问题有一定的针对性，不general，而且不能做到隐私保护。
+
+\section*{下周计划}
+\begin{itemize}
+    \item 看其他关于SGD改进文章。
+    \item 考虑分布式MTL问题，考虑请教师兄，听听师兄看法。
+    \item 花时间应对考试
+    \item 发周报前突然看见《Distribution multi-task learning》作者挂在Arxiv上的文章 \href{https://arxiv.org/abs/1603.02185}{Distributed Multi-Task Learning with Shared Representation》} ，里面提到了很多方法，包括ADMM，周五仔细看看。
+\end{itemize}
+\end{document} 
