@@ -1,0 +1,27 @@
+\documentclass{ctexart}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{hyperref}
+\usepackage{subfigure}
+\usepackage{geometry}
+\geometry{left=2.5cm,right=3.5cm,top=2.5cm,bottom=2.5cm}
+\CTEXsetup[format+={\flushleft}]{section}
+
+\begin{document}
+\CJKfamily{li}
+\title{周报}
+\author{刘精昌}
+\maketitle
+\fangsong
+
+\section*{本周工作}
+\begin{enumerate}
+  \item 准备组会报告
+  \item 阅读两篇优化相关的paper，《Asynchronous Multi-Task Learning》和亦锬师兄的《Make Workers Work Harder: Decoupled Asynchronous Proximal Stochastic Gradient Descent》。两者主要是在在求解$\mathop {\min }\limits_x f\left( x \right) + g\left( x \right)$, $f\left( x \right) \buildrel \Delta \over = \frac{1}{n}\sum\limits_{i = 1}^n {\mathop f\nolimits_i \left( x \right)} $，$g(x)$通常凸但是不光滑。求解这样的优化问题，需要prox操作，prox操作的复杂度较大。《Asynchronous Multi-Task Learning》中将prox操作放在server上进行，client负责计算梯度。亦锬师兄将prox分散到client上进行，能减少server上的计算延迟。。
+\end{enumerate}
+
+\section*{下周计划}
+\begin{itemize}
+  \item 主要以看优化书籍为主。
+\end{itemize}
+\end{document} 
