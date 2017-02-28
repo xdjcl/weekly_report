@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{ctex}
+\usepackage{hyperref}
+\usepackage{fontspec}
+\usepackage{hyperref}
+
+\setmainfont{FangSong}
+
+\begin{document}
+
+\title{周报}
+\author{刘精昌}
+\maketitle
+
+\section*{本周工作}
+\begin{enumerate}
+  \item 借助\href{http://www.seas.ucla.edu/~vandenbe/ee236c.html}{UCLA的优化教程}详细地看了优化的一些假定（lipschitz连续、强凸等），理解了Lipschitz continuity 导数、共轭函数的凸性、co-coercivity、二次上界这些定义的等价性。
+  \item 结合Bottou等人在ICML16的\href{http://users.iems.northwestern.edu/~nocedal/ICML}{tutorial}，看了他前不久的出版物\href{https://arxiv.org/abs/1606.04838}{《Optimization Methods for Large-Scale Machine Learning》}前面关于SGD的部分，主要包括优化问题起源以及SGD部分。SGD部分详细地阐述了固定步长下，SGD能做到线性收敛到最优点附近点；在衰减步长的情形下，SGD次线性收敛到最优点。文章具有一定的深度，作者站在比较高的角度对问题进行阐述，分析，值得好好阅读、理解。
+  \item 粗略看了一些关于SGD改进（SAG、SAGA）的文章。后面会继续看、思考、整理。
+\end{enumerate}
+
+\section*{后续计划}
+\begin{itemize}
+    \item 继续看Bottou的文献后面关于SGD改进的部分，继续看、理解一些讲SGD改进的文章，然后对这些进行总结。
+\end{itemize}
+\end{document} 

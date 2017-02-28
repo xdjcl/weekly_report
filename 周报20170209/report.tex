@@ -1,0 +1,25 @@
+\documentclass{ctexart}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{hyperref}
+\usepackage{subfigure}
+\usepackage{geometry}
+
+\begin{document}
+
+\title{周报}
+\author{刘精昌}
+\maketitle
+
+\fangsong
+\section*{本周工作}
+\begin{enumerate}
+  \item 结合提出SAGA、SVRG的经典论文，继续阅读Bottou等人的\href{https://arxiv.org/abs/1606.04838}{《Optimization Methods for Large-Scale Machine Learning》}Noise Reduction Methods、Other Popular Methods两部分。SGD方法每次迭代用单个梯度替代全梯度，因为单个梯度并不是全梯度，也就是单个梯度替代全梯度有一定的noise。这种noise的存在，导致SGD的收敛慢，于是可以考虑reduce noise。Paper中总结了三种noise reduce的方法：Dynamic Sample Size Methods、Gradient Aggregation、Iterate Averaging Methods。其中SAGA、SVRG这些经典的SGD变种就属于从Gradient Aggregation角度reduce noise。
+  \item 和亦锬师兄联系。浏览了他提供的两篇paper。一篇主要是解决model异步并行的$f(x)+g(x)$优化问题。下面会继续看。
+\end{enumerate}
+
+\section*{后续计划}
+\begin{itemize}
+    \item 亦锬师兄推荐的那两篇文章相关。
+\end{itemize}
+\end{document} 
